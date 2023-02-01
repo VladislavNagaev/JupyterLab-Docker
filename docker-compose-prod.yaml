@@ -1,0 +1,33 @@
+---
+version: "3.8"
+
+services:
+
+  jupyterlab:
+    image: jupyterlab-base:3.5.2
+    # build:
+    #   context: .
+    #   dockerfile: base.Dockerfile
+    container_name: jupyterlab
+    command: jupyterlab
+    ports:
+      - target: 8890
+        published: 8890
+        mode: host
+    volumes:
+      - type: bind
+        source: ${APPS_DATA}/jupyterlab
+        target: /workspace
+    networks:
+      - main-overlay-network
+    environment:
+      # Port to start Jupyter Lab (default: 8888)
+      SPARK_JUPYTERLAB_PORT: 8890
+    working_dir: /workspace
+
+
+networks:
+  main-overlay-network:
+    external: true
+    driver: overlay
+    attachable: true
