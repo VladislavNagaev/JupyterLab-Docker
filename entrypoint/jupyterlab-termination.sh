@@ -1,13 +1,13 @@
 #!/bin/bash
 
-COMMAND="${1:-}"
+COMMAND="${1:-}";
 
 if [ "${COMMAND}" == "jupyterlab" ]; then
 
-    echo "Ending Jupyter Lab ..."
+    echo -e "${blue_b}Ending Jupyter Lab ...${reset_font}";
 
-    jupyter lab stop ${SPARK_JUPYTERLAB_PORT:-8888}
+    jupyter lab stop ${SPARK_JUPYTERLAB_PORT:-8888};
 
-fi
+fi;
 
-exit $?
+exit $?;

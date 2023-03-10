@@ -9,6 +9,7 @@ services:
     #   context: .
     #   dockerfile: base.Dockerfile
     container_name: jupyterlab
+    hostname: jupyterlab
     command: jupyterlab
     ports:
       - target: 8890
