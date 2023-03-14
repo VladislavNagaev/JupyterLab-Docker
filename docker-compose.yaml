@@ -23,8 +23,9 @@ services:
       - main-network
     environment:
       # Port to start Jupyter Lab (default: 8888)
-      SPARK_JUPYTERLAB_PORT: 8890
+      JUPYTERLAB_PORT: 8890
     working_dir: /workspace
+    restart: always
 
 
 networks:
